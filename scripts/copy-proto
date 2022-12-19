@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+set -e
+
+if ! [ -d ./protos ]; then
+  mkdir protos \
+    protos/user-service \
+    protos/deal-service \
+    protos/product-service \
+    protos/notification-service \
+    protos/request-service \
+    protos/feedback-service \
+    protos/report-service
+fi
+
+cd ../
+
+if [ -d user-service/src/protos/user-service ];
+then
+  cp -r user-service/src/protos/user-service sync-service/protos/
+else
+  echo "No user-service directory"
+fi
+
+if [ -d deal-service/src/protos/deal-service ];
+then
+  cp -r deal-service/src/protos/deal-service sync-service/protos/
+else
+  echo "No deal-service directory"
+fi
+
+if [ -d product-service/src/protos/product-service ];
+then
+  cp -r product-service/src/protos/product-service sync-service/protos/
+else
+  echo "No product-service directory"
+fi
+
+if [ -d notification-service/src/protos/notification-service ];
+then
+  cp -r notification-service/src/protos/notification-service sync-service/protos/
+else
+  echo "No notification-service directory"
+fi
+
+if [ -d request-service/src/protos/request-service ];
+then
+  cp -r request-service/src/protos/request-service sync-service/protos/
+else
+  echo "No request-service directory"
+fi
+
+if [ -d feedback-service/src/protos/feedback-service ];
+then
+  cp -r feedback-service/src/protos/feedback-service sync-service/protos/
+else
+  echo "No feedback-service directory"
+fi
+
+if [ -d report-service/src/protos/report-service ];
+then
+  cp -r report-service/src/protos/report-service sync-service/protos/
+else
+  echo "No report-service directory"
+fi

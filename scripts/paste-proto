@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+services=(user-service deal-service product-service notification-service request-service feedback-service report-service auth-service chat-service)
+
+cd ../
+
+upload_proto () {
+  if ! [ -d ./$1/src/protos ];
+  then
+    echo "create $1/src/protos folder"
+    mkdir ./$1/src/protos
+  fi
+  cp -r ./sync-service/protos ./$1/src
+  cd ./$1/
+
+  git status
+  git add src/protos
+  git commit -m 'sync proto' --no-verify
+  git push origin master
+
+  cd ../
+}
+
+for serviceName in ${services[@]}; do
+  upload_proto "$serviceName"
+done
+upload_proto "../dashboard-api"
+

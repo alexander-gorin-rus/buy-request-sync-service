@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+bash ./scripts/copy-proto
+bash ./scripts/paste-proto
+
+echo "Success!"
